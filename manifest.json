@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "AI Auto Comment (Gemini)",
+  "version": "1.0",
+  "description": "Tự động tạo comment bằng Gemini AI và điền vào ô comment khi click bài post",
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://www.facebook.com/*",
+    "https://generativelanguage.googleapis.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.facebook.com/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }
+  ],
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": false
+  },
+  "action": {
+    "default_popup": "options.html",
+    "default_icon": "icon.png"
+  }
+}
